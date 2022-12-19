@@ -12,7 +12,14 @@ module.exports = (sequelize, DataTypes) => {
   table_jabatan.init(
     {
       id_department: DataTypes.INTEGER,
-      nama_jabatan: DataTypes.STRING,
+      nama_jabatan: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validate: {
+          notNull: { message: `Nama Jabatan tidak boleh kosong` },
+          notEmpty: { message: `Nama Jabatan tidak boleh kosong` },
+        },
+      },
     },
     {
       sequelize,

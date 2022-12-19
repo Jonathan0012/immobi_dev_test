@@ -10,7 +10,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   table_department.init(
     {
-      nama_department: DataTypes.STRING,
+      nama_department: {
+        allowNull: false,
+        type: DataTypes.STRING,
+        validate: {
+          notNull: { message: `Nama Department tidak boleh kosong` },
+          notEmpty: { message: `Nama Department tidak boleh kosong` },
+        },
+      },
     },
     {
       sequelize,
