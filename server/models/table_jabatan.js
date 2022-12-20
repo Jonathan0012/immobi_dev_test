@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       table_jabatan.hasMany(models.table_karyawan, {
         foreignKey: "id_jabatan",
       });
-      table_jabatan.belongsTo(models.table_department);
+      table_jabatan.belongsTo(models.table_department, {
+        foreignKey: "id_department",
+      });
     }
   }
   table_jabatan.init(
