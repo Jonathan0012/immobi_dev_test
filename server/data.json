@@ -1,0 +1,44 @@
+{
+  "Departments": [
+    {
+      "nama_department": "Business Development"
+    },
+    {
+      "nama_department": "Finance"
+    },
+    {
+      "nama_department": "General Affairs"
+    },
+    {
+      "nama_department": "IT Development"
+    }
+  ],
+  "Jabatan": [
+    {
+      "id_department": 4,
+      "nama_jabatan": "FullStack Developer"
+    },
+    {
+      "id_department": 4,
+      "nama_jabatan": "BackEnd Developer"
+    },
+    {
+      "id_department": 4,
+      "nama_jabatan": "FrontEnd Developer"
+    },
+    {
+      "id_department": 2,
+      "nama_jabatan": "HRD"
+    }
+  ],
+  "Karyawan": [
+    {
+        "name": "Rahmat",
+        "id_jabatan": 1,
+        "age" : 26,
+        "gender" : "L",
+        "tanggal_lahir": "22-06-1994",
+        "alamat": "Jl.Alhambra"
+    }
+  ]
+}
