@@ -48,7 +48,7 @@ export default function HomeTable() {
                 <td>{el.tanggal_lahir}</td>
                 <td>{el.alamat}</td>
                 <td>
-                  <Link to="/edit-karyawan" className="px-0 mb-2 align-middle">
+                  <Link to={`/edit-karyawan/${el.id}`} className="px-0 mb-2 align-middle">
                     <span className="ms-1 d-none d-sm-inline">Edit</span>{" "}
                   </Link>
                 </td>
