@@ -1,4 +1,4 @@
-const { table_karyawan } = require("../models");
+const { table_karyawan, table_jabatan } = require("../models");
 
 class Karyawan {
   static async createKaryawan(req, res) {
@@ -20,7 +20,10 @@ class Karyawan {
 
   static async getAllKaryawan(req, res) {
     try {
-      const karyawan = await table_karyawan.findAll();
+      const karyawan = await table_karyawan.findAll({include: {
+        model: table_jabatan,
+        attributes: ["nama_jabatan"]
+      }});
       res.status(200).json(karyawan);
     } catch (err) {
       res.status(500).json({ message: "ISE" });
