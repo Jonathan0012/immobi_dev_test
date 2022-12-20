@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <FormKaryawan />,
       },
       {
-        path: "/edit-karyawan",
+        path: "/edit-karyawan/:id",
         element: <EditKaryawan />,
       },
       {

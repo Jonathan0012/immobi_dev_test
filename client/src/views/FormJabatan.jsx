@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchDepartment } from "../store/slices/department";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { addJabatan } from "../store/slices/jabatan";
 
 export default function FormJabatan() {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ export default function FormJabatan() {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      console.log(formJabatan);
+      dispatch(addJabatan(formJabatan));
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -61,7 +63,10 @@ export default function FormJabatan() {
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label className="text-start">Department</Form.Label>
-              <Form.Select value={formJabatan.id_department} onChange={changeInputHandler}>
+              <Form.Select
+                value={formJabatan.id_department}
+                onChange={changeInputHandler}
+              >
                 {department.map((el) => {
                   return (
                     <option value={el.id} key={el.id}>

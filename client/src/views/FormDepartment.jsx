@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { addDepartment } from "../store/slices/department";
+import { useDispatch } from "react-redux";
 
 export default function FormDepartment() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formDepartment, setFormDepartment] = useState({
     nama_department: "",
   });
@@ -22,7 +25,7 @@ export default function FormDepartment() {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      console.log(formDepartment);
+      dispatch(addDepartment(formDepartment.nama_department))
     } catch (err) {
       console.log(err);
     }

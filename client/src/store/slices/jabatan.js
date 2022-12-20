@@ -9,6 +9,18 @@ export const fetchJabatan = createAsyncThunk(
   }
 );
 
+export const addJabatan = createAsyncThunk(
+  "jabatan/addSuccess",
+  async (formJabatan) => {
+    const { id_department, nama_jabatan } = formJabatan;
+    const { data } = await instance.post("/jabatan", {
+      id_department: Number(id_department),
+      nama_jabatan: nama_jabatan,
+    });
+    return data;
+  }
+);
+
 const jabatanSlice = createSlice({
   name: "jabatan",
   initialState: {

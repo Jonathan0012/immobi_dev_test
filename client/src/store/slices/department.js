@@ -9,6 +9,15 @@ export const fetchDepartment = createAsyncThunk(
   }
 );
 
+export const addDepartment = createAsyncThunk(
+  "department/addSuccess",
+  async (nama_department) => {
+    const { data } = await instance.post("/department", {
+      nama_department: nama_department,
+    });
+    return data;
+  }
+);
 const departmentSlice = createSlice({
   name: "department",
   initialState: {

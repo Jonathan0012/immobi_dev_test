@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
 import { fetchKaryawan } from "../store/slices/karyawan";
 import { Link } from "react-router-dom";
+import { deleteKaryawan } from "../store/slices/karyawan";
 
 export default function HomeTable() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ export default function HomeTable() {
     dispatch(fetchKaryawan());
   }, []);
 
-  function deleteKaryawan(id) {
-    console.log(id);
+  async function deleteKaryawanHandler(id) {
+    dispatch(deleteKaryawan(id));
     dispatch(fetchKaryawan());
   }
   return (
@@ -47,11 +48,13 @@ export default function HomeTable() {
                 <td>{el.tanggal_lahir}</td>
                 <td>{el.alamat}</td>
                 <td>
-                  <Link to="/edit-karyawan" className="px-0 mb-2 align-middle">
+                  <Link to={`/edit-karyawan/${el.id}`} className="px-0 mb-2 align-middle">
                     <span className="ms-1 d-none d-sm-inline">Edit</span>{" "}
                   </Link>
                 </td>
-                <td><button onClick={() => deleteKaryawan(el.id)}>Delete</button></td>
+                <td>
+                  <button onClick={() => deleteKaryawanHandler(el.id)}>Delete</button>
+                </td>
               </tr>
             );
           })}
